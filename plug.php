@@ -52,7 +52,7 @@ if ($opsi === 'a') {
     fclose($open);
 } elseif ($opsi === 'b') {
     do {
-        $plugins = readline("Plugin name (e.g., contact-form-7): ");
+        $plugins = readline("Plugin name: ");
         if (!preg_match('/^[a-z0-9-]+$/', $plugins)) {
             echo "[{$merah}-{$reset}] {$merah}Invalid input!{$reset} => {$merah}Plugin name must contain only lowercase letters, numbers, and hyphens.{$reset}\n";
         }
