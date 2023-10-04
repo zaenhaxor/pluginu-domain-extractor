@@ -73,12 +73,13 @@ if ($opsi === 'a') {
     $open = fopen($out_file, 'w');
     for ($page = $start_page; $page <= $until_page; $page++) {
         $url = "http://pluginu.com/{$plugins}/{$page}";
-        $data = fetchData($url);
+        $data = req_pluginu($url);
         $regex = '/\/site\/([^"]+)"/';
         $total = 0;
         if (preg_match_all($regex, $data, $matches)) {
             $domains = $matches[1];
             $filter = array_unique(str_replace("'", "", $domains));
+
             foreach ($filter as $domain) {
                 fwrite($open, $domain . PHP_EOL);
                 $total++;
